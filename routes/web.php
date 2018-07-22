@@ -17,8 +17,6 @@ Route::get('/', function () {
 
 Route::get('hello', 'HelloController@index');
 
-Route::get('hello/other', 'HelloController@other');
-
 // Route::get('hello/{msg?}/{pass?}', function ($msg='no message', $pass='no pass') {
 //
 //   $html = <<<EOF
