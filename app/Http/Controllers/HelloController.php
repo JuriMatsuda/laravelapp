@@ -39,8 +39,14 @@ class HelloController extends Controller {
 // return $response;
 //   }
 
-public function index() {
-  $data = ['msg' => 'これはBladeを利用したサンプルです。'];
-  return view('hello.index', $data);
-}
+  public function index() {
+    $data = ['msg' => 'お名前を入力してください。'];
+    return view('hello.index', $data);
+  }
+
+  public function post(Request $requet) {
+    $msg = $requet->msg;
+    $data = ['msg' => 'こんにちは、' . $msg . 'さん！',];
+    return view('hello.index', $data);
+  }
 }
