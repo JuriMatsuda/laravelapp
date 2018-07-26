@@ -39,8 +39,8 @@ class HelloController extends Controller {
 // return $response;
 //   }
 
-  public function index() {
-        return view('hello.index', ['message' => 'Hello!']);
+  public function index(Request $request) {
+        return view('hello.index', ['data' => $request->data]);
   }
 
   public function post(Request $request) {
