@@ -21,6 +21,7 @@
     @endforeach
   </table>
   @endsection
+  
 @section('footer')
   copyright 2018 nchaaa
 @endsection
