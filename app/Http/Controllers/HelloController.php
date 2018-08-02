@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class HelloController extends Controller {
+class HelloController extends Controller
+{
 //   public function index(Request $request, Response $response) {
 //
 //     $html = <<<EOF
@@ -39,17 +40,19 @@ class HelloController extends Controller {
 // return $response;
 //   }
 
-  public function index(Request $request) {
+    public function index(Request $request)
+    {
         return view('hello.index', ['msg' => 'フォーム入力：']);
-  }
+    }
 
-  public function post(Request $request) {
-      $validate_rule = [
-          'name' => 'required',
-          'mail' => 'email',
-          'age' => 'numeric|between:0,150',
-      ];
-      $this->validate($request, $validate_rule);
+    public function post(Request $request)
+    {
+        $validate_rule = [
+            'name' => 'required',
+            'mail' => 'email',
+            'age' => 'numeric|between:0,150',
+        ];
+        $this->validate($request, $validate_rule);
         return view('hello.index', ['msg' => '正しく入力されました。']);
-  }
+    }
 }
