@@ -19,7 +19,7 @@ class HelloServiceProvider extends ServiceProvider
     {
         $validator = $this->app['validator'];
         $validator->resolver(function($translator, $data, $rules, $messages) {
-            return new HelloValidator($translator, $data, $rules, $messages);
+            return new HelloValidators($translator, $data, $rules, $messages);
         });
     }
 
