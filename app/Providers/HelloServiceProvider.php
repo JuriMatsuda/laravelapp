@@ -17,9 +17,9 @@ class HelloServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Validate::extend('hello', function($attribute, $value, $parameters, $validator) {
-           return $value % 2 == 0;
-        });
+//        Validator::extend('hello', function($attribute, $value, $parameters, $validator) {
+//           return $value % 2 == 0;
+//        });
     }
 
     /**
