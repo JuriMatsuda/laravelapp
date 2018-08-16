@@ -31,5 +31,5 @@
 @endsection
 
 @section('footer')
-    copyright 2018 nchaaa
+    copyright 2018 nchaaa.
 @endsection
