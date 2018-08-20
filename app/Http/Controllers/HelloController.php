@@ -53,28 +53,26 @@ class HelloController extends Controller
             'mail' => $request->mail,
             'age' => $request->age,
         ];
-        DB::insert('insert into people (name, mail, age) values (:name, :mail, :age)', $params);
+        DB::table('people')->insert($params);
         return redirect(('/hello'));
     }
 
     public function edit(Request $request)
     {
-        $param = ['id' => $request->id];
-        $item = DB::select('select * from people where id = :id', $param);
-        return view('hello.edit', ['form' => $item[0]]);
+        $item = DB::table('people')->where('id', $request->id)->first();
+        return view('hello.edit', ['form' => $item]);
     }
 
     public function update(Request $request)
     {
         $params = [
-            'id' => $request->id,
             'name' => $request->name,
             'mail' => $request->mail,
             'age' => $request->age,
         ];
-        DB::update('update people set name = :name, mail = :mail, age = :age where id = :id', $params);
+        DB::table('people')->where('id', $request->id)->update($params);
         return redirect('/hello');
-    }
+    }z
 
     public function del(Request $request)
     {
