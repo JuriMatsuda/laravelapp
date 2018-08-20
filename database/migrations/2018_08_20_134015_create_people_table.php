@@ -8,6 +8,7 @@ class CreatePeopleTable extends Migration
 {
     /**
      * Run the migrations.
+     * テーブルを生成するためのupメソッド
      *
      * @return void
      */
@@ -15,12 +16,16 @@ class CreatePeopleTable extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('mail');
+            $table->integer('age');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     * テーブルを削除するためのdownメソッド
      *
      * @return void
      */
