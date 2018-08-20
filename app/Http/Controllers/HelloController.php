@@ -17,17 +17,19 @@ class HelloController extends Controller
         // $items = DB::select('select * from people');
 
         // クエリビルダ
-        $items = DB::table('people')->get();
+        $items = DB::table('people')
+            ->orderBy('age', 'asc')
+            ->get();
 
         return view('hello.index', ['items' => $items]);
     }
 
     public function show(Request $request)
     {
-        $name = $request->name;
+        $min = $request->min;
+        $max = $request->max;
         $items = DB::table('people')
-            ->where('name', 'like', "%{$name}%")
-            ->orWhere('mail', 'like', "%{$name}%")
+            ->whereRaw('age >= ? and age <= ?', [$min, $max])
             ->get();
         return view('hello.show', ['items' => $items]);
     }
