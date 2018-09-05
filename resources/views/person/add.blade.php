@@ -18,7 +18,7 @@
         </div>
     @endif
     <table>
-        <form action="/person/add">
+        <form action="/person/add" method="post">
             {{csrf_field()}}
             <tr>
                 <th>name:</th>
