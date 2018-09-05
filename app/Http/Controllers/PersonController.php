@@ -38,11 +38,11 @@ class PersonController extends Controller
         $person = new Person;
         $form = $request->all();
         unset($form['_token']);
-//        $person->fill($form)->save();
-        $person->name = $request->name;
-        $person->mail = $request->mail;
-        $person->age = $request->age;
-        $person->save();
+        $person->fill($form)->save();
+//        $person->name = $request->name;
+//        $person->mail = $request->mail;
+//        $person->age = $request->age;
+//        $person->save();
         return redirect('/person');
     }
 }
