@@ -49,7 +49,11 @@ class PersonController extends Controller
     public function edit(Request $request)
     {
         $person = Person::find($request->id);
-        return view('person.edit', ['form' => $person]);
+        if (isset($person)) {
+            return view('person.edit', ['form' => $person]);
+        } else {
+            return redirect('/person');
+        }
     }
 
     public function update(Request $request)
