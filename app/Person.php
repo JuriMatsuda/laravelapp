@@ -22,6 +22,14 @@ class Person extends Model
     );
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function boards()
+    {
+        return $this->hasMany('App\Board');
+    }
+
+    /**
      * @return string
      */
     public function getData()
@@ -42,13 +50,5 @@ class Person extends Model
     public function scopeAgeLessThan($query, $n)
     {
         return $query->where('age', '<=', $n);
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function boards()
-    {
-        return $this->hasMany('App\Board');
     }
 }
