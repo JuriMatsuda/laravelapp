@@ -40,4 +40,12 @@ class Person extends Model
     {
         return $query->where('age', '<=', $n);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function board()
+    {
+        return $this->hasOne('App\Board');
+    }
 }
