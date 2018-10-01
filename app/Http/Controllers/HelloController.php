@@ -14,7 +14,8 @@ class HelloController extends Controller
 
     public function index(Request $request)
     {
-        $items = DB::table('people')->simplePaginate(3);
+//        $items = DB::table('people')->orderBy('age', 'asc')->simplePaginate(3);
+        $items = Person::orderBy('age', 'asc')->simplePaginate(5);
 
         return view('hello.index', ['items' => $items]);
     }
