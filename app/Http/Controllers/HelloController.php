@@ -15,11 +15,11 @@ class HelloController extends Controller
     public function index(Request $request)
     {
         $sort = $request->sort;
-        $items = Person::orderBy('age', 'asc')->simplePaginate(5);
+//        $items = Person::orderBy('age', 'asc')->simplePaginate(5);
+        $items = Person::orderBy('age', 'asc')->paginate(5);
         $param = ['items' => $items, 'sort' => $sort];
 
         return view('hello.index', $param);
-
     }
 
     public function show(Request $request)
